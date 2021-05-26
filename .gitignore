@@ -2,3 +2,4 @@ vendor
 public
 
 config.local.inc.php
+.DS_Store
