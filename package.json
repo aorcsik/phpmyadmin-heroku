@@ -1,0 +1,17 @@
+{
+    "name": "phpmyadmin-heroku",
+    "version": "1.0.0",
+    "description": "PHPMyAdmin for Heroku",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/aorcsik/phpmyadmin-heroku.git"
+    },
+    "author": "aorcsik@gmail.com",
+    "license": "MIT",
+    "private": "true",
+    "homepage": "https://example.com",
+    "engines": {
+      "node": "^10.x"
+    }
+  }
+  
