@@ -11,7 +11,7 @@
     "private": "true",
     "homepage": "https://example.com",
     "engines": {
-      "node": "^10.x",
+      "node": "^16.x",
       "npm": "*",
       "yarn": "*"
     }
