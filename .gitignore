@@ -1,4 +1,5 @@
 vendor
+node_modules
 public
 
 config.local.inc.php

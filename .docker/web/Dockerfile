@@ -1,15 +1,15 @@
-FROM php:7.3-apache
+FROM php:8.1-apache
 # WORKDIR /var/www/html
 
 # APACHE
 COPY .docker/web/vhost.conf /etc/apache2/sites-available/000-default.conf
-RUN ln -s /etc/apache2/mods-available/ssl.load /etc/apache2/mods-enabled/ssl.load && \
-    a2enmod headers && \
-    a2enmod rewrite
+RUN a2enmod headers && \
+    a2enmod rewrite && \
+    a2enmod ssl
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends apt-utils pkg-config git zip \
-    build-essential libssl-dev libzip-dev libpng-dev libjpeg-dev unzip \
+    build-essential libssl-dev libzip-dev libpng-dev libjpeg-dev libonig-dev unzip \
     libfreetype6-dev libmemcached-dev libmagickwand-dev jpegoptim locales
 
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
@@ -20,7 +20,7 @@ ENV LANG en_US.UTF-8
 
 # NODE and YARN
 RUN apt-get install curl gnupg -yq && \
-    curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
+    curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
     apt-get install nodejs -yq && \
     curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
